@@ -1,0 +1,100 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "django-include-apps"
+version = "1.0.0"
+description = "Intelligent CLI tool to manage Django INSTALLED_APPS with smart package mapping and requirements.txt management"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "ROHAN", email = "rohanroni2019@gmail.com"}
+]
+maintainers = [
+    {name = "ROHAN", email = "rohanroni2019@gmail.com"}
+]
+keywords = [
+    "django",
+    "django-apps",
+    "installed-apps",
+    "package-management",
+    "cli",
+    "requirements",
+    "django-packages",
+    "automation",
+    "development-tools",
+]
+classifiers = [
+    # Development Status
+    "Development Status :: 5 - Production/Stable",
+    
+    # Intended Audience
+    "Intended Audience :: Developers",
+    
+    # License
+    "License :: OSI Approved :: MIT License",
+    
+    # Operating Systems
+    "Operating System :: OS Independent",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    
+    # Programming Languages
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3 :: Only",
+    
+    # Framework
+    "Framework :: Django",
+    "Framework :: Django :: 2.2",
+    "Framework :: Django :: 3.0",
+    "Framework :: Django :: 3.1",
+    "Framework :: Django :: 3.2",
+    "Framework :: Django :: 4.0",
+    "Framework :: Django :: 4.1",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.0",
+    
+    # Topics
+    "Topic :: Software Development",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Utilities",
+    
+    # Environment
+    "Environment :: Console",
+    
+    # Natural Language
+    "Natural Language :: English",
+]
+
+dependencies = [
+    "typer>=0.9.0",
+    "requests>=2.25.0",
+    "inquirer>=3.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/Rohan7654/django-include-apps"
+Documentation = "https://github.com/Rohan7654/django-include-apps#readme"
+Repository = "https://github.com/Rohan7654/django-include-apps"
+"Bug Reports" = "https://github.com/Rohan7654/django-include-apps/issues"
+Changelog = "https://github.com/Rohan7654/django-include-apps/blob/main/CHANGELOG.md"
+
+[project.scripts]
+django-include-apps = "django_include_apps.main:app"
+
+[tool.setuptools]
+packages = ["django_include_apps"]
+include-package-data = true
+
+[tool.setuptools.package-data]
+django_include_apps = ["package_mappings.json"]
