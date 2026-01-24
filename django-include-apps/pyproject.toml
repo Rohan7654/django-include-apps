@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "django-include-apps"
 version = "1.0.0"
 description = "Intelligent CLI tool to manage Django INSTALLED_APPS with smart package mapping and requirements.txt management"
-readme = "README.md"
+readme = "../README.md"
 requires-python = ">=3.8"
 license = {text = "MIT"}
 authors = [
