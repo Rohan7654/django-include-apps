@@ -1,1 +1,0 @@
-want to update current behaviour when they select add to mapping and if already exists will it update if so it needs to ask again and update key with the new value confirmed, one more command to view the package_mapping.json in a table manner in cli itself and another command to add/update/remove from that json  also update the readme and changelog acoordingly  
