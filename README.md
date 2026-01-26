@@ -342,7 +342,7 @@ The tool includes 75+ pre-configured Django package mappings. Here are some popu
 
 **Note:** Packages like `pillow`, `psycopg2`, `gunicorn`, and `mysqlclient` are dependencies only and don't need to be added to `INSTALLED_APPS`.
 
-[View complete list of 75+ packages](https://github.com/Rohan7654/django-include-apps/blob/main/django_include_apps/package_mappings.json)
+[View complete list of 75+ packages](https://github.com/Rohan7654/django-include-apps/blob/main/django-include-apps/django_include_apps/package_mappings.json)
 
 ## Protected Django Apps
 
