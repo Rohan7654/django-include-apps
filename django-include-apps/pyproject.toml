@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "django-include-apps"
-version = "1.1.1"
+version = "1.1.2"
 description = "Intelligent CLI tool to manage Django INSTALLED_APPS with smart package mapping and requirements.txt management"
 readme = "README.md"
 requires-python = ">=3.8"

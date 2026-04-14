@@ -122,7 +122,7 @@ All commands accept `--start-dir` / `-d` to target a specific project.
 | `completion`           | Shell auto-completion setup                        |
 | `mapping`              | Manage custom package mappings                     |
 
-📖 **[Full Command Reference →](django-include-apps/COMMANDS.md)** — Every command with all flags, variants, and sample output.
+📖 **[Full Command Reference →](https://github.com/Rohan7654/django-include-apps/blob/main/django-include-apps/COMMANDS.md)** — Every command with all flags, variants, and sample output.
 
 ## Supported Packages
 
@@ -169,7 +169,7 @@ django-include-apps add-app djangorestframework
 django-include-apps status
 ```
 
-📂 **[See the demo project →](django-include-apps/examples/)**
+📂 **[See the demo project →](https://github.com/Rohan7654/django-include-apps/tree/main/django-include-apps/examples/)**
 
 ## Contributing
 
@@ -183,7 +183,7 @@ Have a feature idea? [Open an issue](https://github.com/Rohan7654/django-include
 
 ## License
 
-MIT License — see [LICENSE](LICENSE) for details.
+MIT License — see [LICENSE](https://github.com/Rohan7654/django-include-apps/blob/main/LICENSE) for details.
 
 ## Author
 
@@ -198,5 +198,5 @@ MIT License — see [LICENSE](LICENSE) for details.
 - **Repository**: https://github.com/Rohan7654/django-include-apps
 - **PyPI**: https://pypi.org/project/django-include-apps/
 - **Issues**: https://github.com/Rohan7654/django-include-apps/issues
-- **Changelog**: [CHANGELOG.md](CHANGELOG.md)
-- **Demo Project**: [examples/](django-include-apps/examples/)
+- **Changelog**: [CHANGELOG.md](https://github.com/Rohan7654/django-include-apps/blob/main/CHANGELOG.md)
+- **Demo Project**: [examples/](https://github.com/Rohan7654/django-include-apps/tree/main/django-include-apps/examples/)
