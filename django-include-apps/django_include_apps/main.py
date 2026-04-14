@@ -33,7 +33,7 @@ app = typer.Typer(
 try:
     __version__ = version("django-include-apps")
 except PackageNotFoundError:
-    __version__ = "1.1.0"
+    __version__ = "1.1.1"
 
 
 def version_callback(value: bool):
