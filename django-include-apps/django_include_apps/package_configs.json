@@ -1,0 +1,1967 @@
+{
+    "channels": {
+        "installed_apps": "channels",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": {
+            "default": {
+                "BACKEND": "channels.layers.InMemoryChannelLayer"
+            }
+        },
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "ASGI_APPLICATION": "{{ project_name }}.asgi.application"
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false,
+        "dependencies": [
+            "daphne"
+        ],
+        "installed_apps_order": "before_django_apps"
+    },
+    "channels-redis": {
+        "installed_apps": null,
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": {
+            "default": {
+                "BACKEND": "channels_redis.core.RedisChannelLayer",
+                "CONFIG": {
+                    "hosts": [
+                        "redis://127.0.0.1:6379"
+                    ]
+                }
+            }
+        },
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": null,
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false,
+        "dependencies": [
+            "channels"
+        ]
+    },
+    "celery": {
+        "installed_apps": "celery",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "CELERY_BROKER_URL": "redis://localhost:6379/0",
+            "CELERY_RESULT_BACKEND": "redis://localhost:6379/0",
+            "CELERY_ACCEPT_CONTENT": [
+                "json"
+            ],
+            "CELERY_TASK_SERIALIZER": "json",
+            "CELERY_RESULT_SERIALIZER": "json",
+            "CELERY_TIMEZONE": "UTC",
+            "CELERY_TASK_TRACK_STARTED": true,
+            "CELERY_TASK_TIME_LIMIT": 1800
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false,
+        "extra_files": {
+            "celery.py": "{{ project_name }}/celery.py"
+        }
+    },
+    "daphne": {
+        "installed_apps": "daphne",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "ASGI_APPLICATION": "{{ project_name }}.asgi.application"
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false,
+        "installed_apps_order": "before_django_apps"
+    },
+    "dj-rest-auth": {
+        "installed_apps": "dj_rest_auth",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": {
+            "pattern": "api/auth/",
+            "include": "dj_rest_auth.urls"
+        },
+        "required_settings": {
+            "REST_AUTH": {
+                "USE_JWT": false,
+                "JWT_AUTH_HTTPONLY": true
+            }
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true,
+        "dependencies": [
+            "djangorestframework"
+        ]
+    },
+    "django-activity-stream": {
+        "installed_apps": "actstream",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": {
+            "pattern": "activity/",
+            "include": "actstream.urls"
+        },
+        "required_settings": {
+            "ACTSTREAM_SETTINGS": {
+                "MANAGER": "actstream.managers.ActionManager",
+                "FETCH_RELATIONS": true,
+                "USE_JSONFIELD": true
+            }
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true
+    },
+    "django-admin-rangefilter": {
+        "installed_apps": "rangefilter",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": null,
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-admin-sortable2": {
+        "installed_apps": "adminsortable2",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": null,
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-allauth": {
+        "installed_apps": [
+            "allauth",
+            "allauth.account",
+            "allauth.socialaccount"
+        ],
+        "middleware": "allauth.account.middleware.AccountMiddleware",
+        "middleware_position": "after_auth",
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": [
+            "django.contrib.auth.backends.ModelBackend",
+            "allauth.account.auth_backends.AuthenticationBackend"
+        ],
+        "url_patterns": {
+            "pattern": "accounts/",
+            "include": "allauth.urls"
+        },
+        "required_settings": {
+            "SITE_ID": 1,
+            "ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION": true,
+            "ACCOUNT_AUTHENTICATION_METHOD": "username_email",
+            "ACCOUNT_EMAIL_REQUIRED": true,
+            "ACCOUNT_EMAIL_VERIFICATION": "optional",
+            "ACCOUNT_USERNAME_REQUIRED": true,
+            "ACCOUNT_UNIQUE_EMAIL": true,
+            "LOGIN_REDIRECT_URL": "/",
+            "LOGOUT_REDIRECT_URL": "/"
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true,
+        "required_django_apps": [
+            "django.contrib.sites"
+        ]
+    },
+    "django-bootstrap4": {
+        "installed_apps": "bootstrap4",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "BOOTSTRAP4": {
+                "include_jquery": true
+            }
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-bootstrap5": {
+        "installed_apps": "bootstrap5",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "BOOTSTRAP5": {
+                "css_url": null,
+                "javascript_url": null
+            }
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-braces": {
+        "installed_apps": null,
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": null,
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-celery-beat": {
+        "installed_apps": "django_celery_beat",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "CELERY_BEAT_SCHEDULER": "django_celery_beat.schedulers:DatabaseScheduler"
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true,
+        "dependencies": [
+            "celery"
+        ]
+    },
+    "django-celery-results": {
+        "installed_apps": "django_celery_results",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "CELERY_RESULT_BACKEND": "django-db",
+            "CELERY_CACHE_BACKEND": "django-cache",
+            "CELERY_RESULT_EXTENDED": true
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true,
+        "dependencies": [
+            "celery"
+        ]
+    },
+    "django-ckeditor": {
+        "installed_apps": [
+            "ckeditor",
+            "ckeditor_uploader"
+        ],
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": {
+            "pattern": "ckeditor/",
+            "include": "ckeditor_uploader.urls"
+        },
+        "required_settings": {
+            "CKEDITOR_UPLOAD_PATH": "uploads/",
+            "CKEDITOR_IMAGE_BACKEND": "pillow",
+            "CKEDITOR_CONFIGS": {
+                "default": {
+                    "toolbar": "full",
+                    "height": 300,
+                    "width": "100%"
+                }
+            }
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false,
+        "dependencies": [
+            "pillow"
+        ]
+    },
+    "django-cleanup": {
+        "installed_apps": "django_cleanup",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": null,
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false,
+        "installed_apps_order": "last"
+    },
+    "django-compressor": {
+        "installed_apps": "compressor",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "COMPRESS_ENABLED": true,
+            "COMPRESS_CSS_HASHING_METHOD": "content",
+            "COMPRESS_FILTERS": {
+                "css": [
+                    "compressor.filters.css_default.CssAbsoluteFilter",
+                    "compressor.filters.cssmin.rCSSMinFilter"
+                ],
+                "js": [
+                    "compressor.filters.jsmin.JSMinFilter"
+                ]
+            }
+        },
+        "context_processors": null,
+        "staticfiles_finders": [
+            "compressor.finders.CompressorFinder"
+        ],
+        "requires_migrations": false
+    },
+    "django-constance": {
+        "installed_apps": [
+            "constance",
+            "constance.backends.database"
+        ],
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "CONSTANCE_BACKEND": "constance.backends.database.DatabaseBackend",
+            "CONSTANCE_CONFIG": {},
+            "CONSTANCE_CONFIG_FIELDSETS": {}
+        },
+        "context_processors": [
+            "constance.context_processors.config"
+        ],
+        "staticfiles_finders": null,
+        "requires_migrations": true
+    },
+    "django-cors-headers": {
+        "installed_apps": "corsheaders",
+        "middleware": "corsheaders.middleware.CorsMiddleware",
+        "middleware_position": "top",
+        "middleware_before": "django.middleware.common.CommonMiddleware",
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "CORS_ALLOWED_ORIGINS": [],
+            "CORS_ALLOW_CREDENTIALS": false,
+            "CORS_ALLOW_ALL_ORIGINS": false
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-countries": {
+        "installed_apps": "django_countries",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "COUNTRIES_FIRST": [],
+            "COUNTRIES_FIRST_SORT": false
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-crispy-bootstrap4": {
+        "installed_apps": "crispy_bootstrap4",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "CRISPY_ALLOWED_TEMPLATE_PACKS": "bootstrap4",
+            "CRISPY_TEMPLATE_PACK": "bootstrap4"
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false,
+        "dependencies": [
+            "django-crispy-forms"
+        ]
+    },
+    "django-crispy-bootstrap5": {
+        "installed_apps": "crispy_bootstrap5",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "CRISPY_ALLOWED_TEMPLATE_PACKS": "bootstrap5",
+            "CRISPY_TEMPLATE_PACK": "bootstrap5"
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false,
+        "dependencies": [
+            "django-crispy-forms"
+        ]
+    },
+    "django-crispy-forms": {
+        "installed_apps": "crispy_forms",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "CRISPY_TEMPLATE_PACK": "bootstrap5"
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-debug-toolbar": {
+        "installed_apps": "debug_toolbar",
+        "middleware": "debug_toolbar.middleware.DebugToolbarMiddleware",
+        "middleware_position": "early",
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": {
+            "pattern": "__debug__/",
+            "include": "debug_toolbar.urls"
+        },
+        "required_settings": {
+            "INTERNAL_IPS": [
+                "127.0.0.1"
+            ],
+            "DEBUG_TOOLBAR_CONFIG": {
+                "SHOW_TOOLBAR_CALLBACK": "lambda request: DEBUG"
+            }
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true,
+        "environment": "development_only"
+    },
+    "django-elasticsearch-dsl": {
+        "installed_apps": "django_elasticsearch_dsl",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "ELASTICSEARCH_DSL": {
+                "default": {
+                    "hosts": "localhost:9200"
+                }
+            }
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-environ": {
+        "installed_apps": null,
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": null,
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false,
+        "settings_import": "import environ\nenv = environ.Env()\nenviron.Env.read_env()"
+    },
+    "django-extensions": {
+        "installed_apps": "django_extensions",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "GRAPH_MODELS": {
+                "all_applications": true,
+                "group_models": true
+            }
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-extra-views": {
+        "installed_apps": null,
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": null,
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-filter": {
+        "installed_apps": "django_filters",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "FILTERS_EMPTY_CHOICE_LABEL": "All"
+        },
+        "rest_framework_settings": {
+            "DEFAULT_FILTER_BACKENDS": [
+                "django_filters.rest_framework.DjangoFilterBackend"
+            ]
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true
+    },
+    "django-fsm": {
+        "installed_apps": "django_fsm",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": null,
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-grappelli": {
+        "installed_apps": "grappelli",
+        "installed_apps_order": "before_admin",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": {
+            "pattern": "grappelli/",
+            "include": "grappelli.urls"
+        },
+        "url_patterns_order": "before_admin",
+        "required_settings": {
+            "GRAPPELLI_ADMIN_TITLE": "Admin"
+        },
+        "context_processors": [
+            "django.template.context_processors.request"
+        ],
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-guardian": {
+        "installed_apps": "guardian",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": [
+            "django.contrib.auth.backends.ModelBackend",
+            "guardian.backends.ObjectPermissionBackend"
+        ],
+        "url_patterns": null,
+        "required_settings": {
+            "ANONYMOUS_USER_NAME": null
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true
+    },
+    "django-haystack": {
+        "installed_apps": "haystack",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": {
+            "pattern": "search/",
+            "include": "haystack.urls"
+        },
+        "required_settings": {
+            "HAYSTACK_CONNECTIONS": {
+                "default": {
+                    "ENGINE": "haystack.backends.whoosh_backend.WhooshEngine",
+                    "PATH": "whoosh_index"
+                }
+            },
+            "HAYSTACK_SIGNAL_PROCESSOR": "haystack.signals.RealtimeSignalProcessor"
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true
+    },
+    "django-heroku": {
+        "installed_apps": null,
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": null,
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false,
+        "settings_import": "import django_heroku\ndjango_heroku.settings(locals())"
+    },
+    "django-imagekit": {
+        "installed_apps": "imagekit",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "IMAGEKIT_DEFAULT_CACHEFILE_STRATEGY": "imagekit.cachefiles.strategies.Optimistic",
+            "IMAGEKIT_CACHEFILE_DIR": "CACHE/images"
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false,
+        "dependencies": [
+            "pillow"
+        ]
+    },
+    "django-import-export": {
+        "installed_apps": "import_export",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "IMPORT_EXPORT_USE_TRANSACTIONS": true,
+            "IMPORT_EXPORT_SKIP_ADMIN_LOG": false,
+            "IMPORT_EXPORT_TMP_STORAGE_CLASS": "import_export.tmp_storages.TempFolderStorage"
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true
+    },
+    "django-jazzmin": {
+        "installed_apps": "jazzmin",
+        "installed_apps_order": "before_admin",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "JAZZMIN_SETTINGS": {
+                "site_title": "Admin",
+                "site_header": "Admin",
+                "site_brand": "Admin",
+                "welcome_sign": "Welcome to Admin",
+                "copyright": "Your Company",
+                "show_sidebar": true,
+                "navigation_expanded": true,
+                "topmenu_links": []
+            },
+            "JAZZMIN_UI_TWEAKS": {
+                "navbar_small_text": false,
+                "footer_small_text": false,
+                "body_small_text": false,
+                "brand_small_text": false,
+                "brand_colour": "navbar-primary",
+                "accent": "accent-primary",
+                "navbar": "navbar-dark",
+                "no_navbar_border": false,
+                "navbar_fixed": false,
+                "layout_boxed": false,
+                "footer_fixed": false,
+                "sidebar_fixed": false,
+                "sidebar": "sidebar-dark-primary",
+                "sidebar_nav_small_text": false,
+                "sidebar_disable_expand": false,
+                "sidebar_nav_child_indent": false,
+                "sidebar_nav_compact_style": false,
+                "sidebar_nav_legacy_style": false,
+                "sidebar_nav_flat_style": false,
+                "theme": "default",
+                "dark_mode_theme": null,
+                "button_classes": {
+                    "primary": "btn-primary",
+                    "secondary": "btn-secondary",
+                    "info": "btn-info",
+                    "warning": "btn-warning",
+                    "danger": "btn-danger",
+                    "success": "btn-success"
+                }
+            }
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-jet": {
+        "installed_apps": [
+            "jet",
+            "jet.dashboard"
+        ],
+        "installed_apps_order": "before_admin",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": [
+            {
+                "pattern": "jet/",
+                "include": "jet.urls",
+                "namespace": "jet"
+            },
+            {
+                "pattern": "jet/dashboard/",
+                "include": "jet.dashboard.urls",
+                "namespace": "jet-dashboard"
+            }
+        ],
+        "url_patterns_order": "before_admin",
+        "required_settings": {
+            "JET_THEMES": [
+                {
+                    "theme": "default",
+                    "color": "#47bac1",
+                    "title": "Default"
+                },
+                {
+                    "theme": "green",
+                    "color": "#44b78b",
+                    "title": "Green"
+                },
+                {
+                    "theme": "light-green",
+                    "color": "#2faa60",
+                    "title": "Light Green"
+                }
+            ],
+            "JET_SIDE_MENU_COMPACT": true
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true
+    },
+    "django-manifest-loader": {
+        "installed_apps": "manifest_loader",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "MANIFEST_LOADER": {
+                "output_dir": "dist/",
+                "manifest_file": "manifest.json",
+                "cache": true
+            }
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-markdownx": {
+        "installed_apps": "markdownx",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": {
+            "pattern": "markdownx/",
+            "include": "markdownx.urls"
+        },
+        "required_settings": {
+            "MARKDOWNX_MARKDOWN_EXTENSIONS": [
+                "markdown.extensions.extra",
+                "markdown.extensions.codehilite"
+            ],
+            "MARKDOWNX_UPLOAD_MAX_SIZE": 5242880,
+            "MARKDOWNX_UPLOAD_CONTENT_TYPES": [
+                "image/jpeg",
+                "image/png",
+                "image/gif"
+            ]
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-model-utils": {
+        "installed_apps": "model_utils",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": null,
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-money": {
+        "installed_apps": "djmoney",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "DEFAULT_CURRENCY": "USD",
+            "CURRENCIES": [
+                "USD",
+                "EUR",
+                "GBP"
+            ],
+            "CURRENCY_CHOICES": [
+                [
+                    "USD",
+                    "USD $"
+                ],
+                [
+                    "EUR",
+                    "EUR \u20ac"
+                ],
+                [
+                    "GBP",
+                    "GBP \u00a3"
+                ]
+            ]
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-mptt": {
+        "installed_apps": "mptt",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": null,
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true
+    },
+    "django-notifications-hq": {
+        "installed_apps": "notifications",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": {
+            "pattern": "inbox/notifications/",
+            "include": "notifications.urls",
+            "namespace": "notifications"
+        },
+        "required_settings": {
+            "DJANGO_NOTIFICATIONS_CONFIG": {
+                "USE_JSONFIELD": true,
+                "SOFT_DELETE": false,
+                "NUM_TO_FETCH": 10
+            }
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true
+    },
+    "django-oauth-toolkit": {
+        "installed_apps": "oauth2_provider",
+        "middleware": "oauth2_provider.middleware.OAuth2TokenMiddleware",
+        "middleware_position": "after_auth",
+        "middleware_optional": true,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": [
+            "oauth2_provider.backends.OAuth2Backend",
+            "django.contrib.auth.backends.ModelBackend"
+        ],
+        "url_patterns": {
+            "pattern": "o/",
+            "include": "oauth2_provider.urls",
+            "namespace": "oauth2_provider"
+        },
+        "required_settings": {
+            "OAUTH2_PROVIDER": {
+                "SCOPES": {
+                    "read": "Read scope",
+                    "write": "Write scope"
+                },
+                "ACCESS_TOKEN_EXPIRE_SECONDS": 36000
+            }
+        },
+        "rest_framework_settings": {
+            "DEFAULT_AUTHENTICATION_CLASSES": [
+                "oauth2_provider.contrib.rest_framework.OAuth2Authentication"
+            ]
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true
+    },
+    "django-phonenumber-field": {
+        "installed_apps": "phonenumber_field",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "PHONENUMBER_DEFAULT_REGION": "US",
+            "PHONENUMBER_DEFAULT_FORMAT": "NATIONAL",
+            "PHONENUMBER_DB_FORMAT": "E164"
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false,
+        "dependencies": [
+            "phonenumbers"
+        ]
+    },
+    "django-pipeline": {
+        "installed_apps": "pipeline",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "PIPELINE": {
+                "STYLESHEETS": {},
+                "JAVASCRIPT": {},
+                "CSS_COMPRESSOR": "pipeline.compressors.csshtmljsminify.CSSHTMLJSMinifyCompressor",
+                "JS_COMPRESSOR": "pipeline.compressors.csshtmljsminify.CSSHTMLJSMinifyCompressor"
+            },
+            "STORAGES": {
+                "staticfiles": {
+                    "BACKEND": "pipeline.storage.PipelineManifestStorage"
+                }
+            }
+        },
+        "context_processors": null,
+        "staticfiles_finders": [
+            "pipeline.finders.PipelineFinder"
+        ],
+        "requires_migrations": false
+    },
+    "django-polymorphic": {
+        "installed_apps": "polymorphic",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": null,
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true
+    },
+    "django-redis": {
+        "installed_apps": null,
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": {
+            "default": {
+                "BACKEND": "django_redis.cache.RedisCache",
+                "LOCATION": "redis://127.0.0.1:6379/1",
+                "OPTIONS": {
+                    "CLIENT_CLASS": "django_redis.client.DefaultClient"
+                }
+            }
+        },
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "SESSION_ENGINE": "django.contrib.sessions.backends.cache",
+            "SESSION_CACHE_ALIAS": "default"
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-rest-auth": {
+        "installed_apps": "rest_auth",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": {
+            "pattern": "rest-auth/",
+            "include": "rest_auth.urls"
+        },
+        "required_settings": null,
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true,
+        "dependencies": [
+            "djangorestframework"
+        ],
+        "deprecated": true,
+        "replacement": "dj-rest-auth"
+    },
+    "django-rest-knox": {
+        "installed_apps": "knox",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": {
+            "pattern": "api/auth/",
+            "include": "knox.urls"
+        },
+        "required_settings": {
+            "REST_KNOX": {
+                "SECURE_HASH_ALGORITHM": "hashlib.sha512",
+                "AUTH_TOKEN_CHARACTER_LENGTH": 64,
+                "TOKEN_TTL": "timedelta(hours=10)",
+                "TOKEN_LIMIT_PER_USER": null,
+                "AUTO_REFRESH": false
+            }
+        },
+        "rest_framework_settings": {
+            "DEFAULT_AUTHENTICATION_CLASSES": [
+                "knox.auth.TokenAuthentication"
+            ]
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true,
+        "dependencies": [
+            "djangorestframework"
+        ]
+    },
+    "django-reversion": {
+        "installed_apps": "reversion",
+        "middleware": "reversion.middleware.RevisionMiddleware",
+        "middleware_position": "bottom",
+        "middleware_optional": true,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": null,
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true
+    },
+    "django-sass-processor": {
+        "installed_apps": "sass_processor",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "SASS_PROCESSOR_ENABLED": true,
+            "SASS_PROCESSOR_AUTO_INCLUDE": false,
+            "SASS_PROCESSOR_ROOT": "",
+            "SASS_PRECISION": 8,
+            "SASS_OUTPUT_STYLE": "compact"
+        },
+        "context_processors": null,
+        "staticfiles_finders": [
+            "sass_processor.finders.CssFinder"
+        ],
+        "requires_migrations": false
+    },
+    "django-silk": {
+        "installed_apps": "silk",
+        "middleware": "silk.middleware.SilkyMiddleware",
+        "middleware_position": "any",
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": {
+            "pattern": "silk/",
+            "include": "silk.urls",
+            "namespace": "silk"
+        },
+        "required_settings": {
+            "SILKY_PYTHON_PROFILER": true,
+            "SILKY_PYTHON_PROFILER_BINARY": true,
+            "SILKY_META": true,
+            "SILKY_MAX_RECORDED_REQUESTS": 10000,
+            "SILKY_MAX_REQUEST_BODY_SIZE": -1,
+            "SILKY_MAX_RESPONSE_BODY_SIZE": -1,
+            "SILKY_INTERCEPT_PERCENT": 100,
+            "SILKY_AUTHENTICATION": true,
+            "SILKY_AUTHORISATION": true
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true,
+        "environment": "development_only"
+    },
+    "django-simple-history": {
+        "installed_apps": "simple_history",
+        "middleware": "simple_history.middleware.HistoryRequestMiddleware",
+        "middleware_position": "bottom",
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "SIMPLE_HISTORY_HISTORY_ID_USE_UUID": false,
+            "SIMPLE_HISTORY_FILEFIELD_TO_CHARFIELD": false
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true
+    },
+    "django-solo": {
+        "installed_apps": "solo",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "SOLO_CACHE": "default",
+            "SOLO_CACHE_TIMEOUT": 300,
+            "SOLO_CACHE_PREFIX": "solo"
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true
+    },
+    "django-storages": {
+        "installed_apps": "storages",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "STORAGES": {
+                "default": {
+                    "BACKEND": "storages.backends.s3boto3.S3Boto3Storage"
+                },
+                "staticfiles": {
+                    "BACKEND": "storages.backends.s3boto3.S3StaticStorage"
+                }
+            },
+            "AWS_ACCESS_KEY_ID": "",
+            "AWS_SECRET_ACCESS_KEY": "",
+            "AWS_STORAGE_BUCKET_NAME": "",
+            "AWS_S3_REGION_NAME": "",
+            "AWS_S3_CUSTOM_DOMAIN": null,
+            "AWS_DEFAULT_ACL": null,
+            "AWS_S3_OBJECT_PARAMETERS": {
+                "CacheControl": "max-age=86400"
+            },
+            "AWS_QUERYSTRING_AUTH": false
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false,
+        "dependencies": [
+            "boto3"
+        ]
+    },
+    "django-suit": {
+        "installed_apps": "suit",
+        "installed_apps_order": "before_admin",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "SUIT_CONFIG": {
+                "ADMIN_NAME": "Admin",
+                "HEADER_DATE_FORMAT": "l, j F Y",
+                "HEADER_TIME_FORMAT": "H:i",
+                "SHOW_REQUIRED_ASTERISK": true,
+                "CONFIRM_UNSAVED_CHANGES": true
+            }
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-summernote": {
+        "installed_apps": "django_summernote",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": {
+            "pattern": "summernote/",
+            "include": "django_summernote.urls"
+        },
+        "required_settings": {
+            "SUMMERNOTE_CONFIG": {
+                "iframe": true,
+                "airMode": false,
+                "width": "100%",
+                "height": "480",
+                "lang": null,
+                "toolbar": [
+                    [
+                        "style",
+                        [
+                            "style"
+                        ]
+                    ],
+                    [
+                        "font",
+                        [
+                            "bold",
+                            "underline",
+                            "clear"
+                        ]
+                    ],
+                    [
+                        "fontname",
+                        [
+                            "fontname"
+                        ]
+                    ],
+                    [
+                        "color",
+                        [
+                            "color"
+                        ]
+                    ],
+                    [
+                        "para",
+                        [
+                            "ul",
+                            "ol",
+                            "paragraph"
+                        ]
+                    ],
+                    [
+                        "table",
+                        [
+                            "table"
+                        ]
+                    ],
+                    [
+                        "insert",
+                        [
+                            "link",
+                            "picture",
+                            "video"
+                        ]
+                    ],
+                    [
+                        "view",
+                        [
+                            "fullscreen",
+                            "codeview",
+                            "help"
+                        ]
+                    ]
+                ]
+            },
+            "X_FRAME_OPTIONS": "SAMEORIGIN"
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true
+    },
+    "django-tables2": {
+        "installed_apps": "django_tables2",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "DJANGO_TABLES2_TEMPLATE": "django_tables2/bootstrap5.html"
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-taggit": {
+        "installed_apps": "taggit",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "TAGGIT_CASE_INSENSITIVE": true
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true
+    },
+    "django-tinymce": {
+        "installed_apps": "tinymce",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": {
+            "pattern": "tinymce/",
+            "include": "tinymce.urls"
+        },
+        "required_settings": {
+            "TINYMCE_DEFAULT_CONFIG": {
+                "theme": "silver",
+                "height": 500,
+                "menubar": true,
+                "plugins": "advlist,autolink,lists,link,image,charmap,preview,anchor,searchreplace,visualblocks,code,fullscreen,insertdatetime,media,table,paste,code,help,wordcount",
+                "toolbar": "undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help"
+            }
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-unfold": {
+        "installed_apps": "unfold",
+        "installed_apps_order": "before_admin",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "UNFOLD": {
+                "SITE_TITLE": "Admin",
+                "SITE_HEADER": "Admin",
+                "SITE_URL": "/",
+                "SHOW_HISTORY": true,
+                "ENVIRONMENT": null,
+                "COLORS": {
+                    "primary": {
+                        "50": "250 245 255",
+                        "100": "243 232 255",
+                        "200": "233 213 255",
+                        "300": "216 180 254",
+                        "400": "192 132 252",
+                        "500": "168 85 247",
+                        "600": "147 51 234",
+                        "700": "126 34 206",
+                        "800": "107 33 168",
+                        "900": "88 28 135",
+                        "950": "59 7 100"
+                    }
+                },
+                "SIDEBAR": {
+                    "show_search": true,
+                    "show_all_applications": true
+                }
+            }
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-vanilla-views": {
+        "installed_apps": "vanilla",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": null,
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-webpack-loader": {
+        "installed_apps": "webpack_loader",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "WEBPACK_LOADER": {
+                "DEFAULT": {
+                    "CACHE": true,
+                    "BUNDLE_DIR_NAME": "bundles/",
+                    "STATS_FILE": "webpack-stats.json",
+                    "POLL_INTERVAL": 0.1,
+                    "TIMEOUT": null,
+                    "IGNORE": [
+                        ".+\\.hot-update.js",
+                        ".+\\.map"
+                    ],
+                    "LOADER_CLASS": "webpack_loader.loader.WebpackLoader"
+                }
+            }
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-widget-tweaks": {
+        "installed_apps": "widget_tweaks",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": null,
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "djangorestframework": {
+        "installed_apps": "rest_framework",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": {
+            "pattern": "api-auth/",
+            "include": "rest_framework.urls",
+            "namespace": "rest_framework",
+            "optional": true
+        },
+        "required_settings": {
+            "REST_FRAMEWORK": {
+                "DEFAULT_AUTHENTICATION_CLASSES": [
+                    "rest_framework.authentication.SessionAuthentication",
+                    "rest_framework.authentication.BasicAuthentication"
+                ],
+                "DEFAULT_PERMISSION_CLASSES": [
+                    "rest_framework.permissions.IsAuthenticated"
+                ],
+                "DEFAULT_RENDERER_CLASSES": [
+                    "rest_framework.renderers.JSONRenderer",
+                    "rest_framework.renderers.BrowsableAPIRenderer"
+                ],
+                "DEFAULT_PARSER_CLASSES": [
+                    "rest_framework.parsers.JSONParser",
+                    "rest_framework.parsers.FormParser",
+                    "rest_framework.parsers.MultiPartParser"
+                ],
+                "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+                "PAGE_SIZE": 10
+            }
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true
+    },
+    "easy-thumbnails": {
+        "installed_apps": "easy_thumbnails",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "THUMBNAIL_ALIASES": {
+                "": {
+                    "avatar": {
+                        "size": [
+                            50,
+                            50
+                        ],
+                        "crop": true
+                    },
+                    "small": {
+                        "size": [
+                            100,
+                            100
+                        ],
+                        "crop": true
+                    },
+                    "medium": {
+                        "size": [
+                            300,
+                            300
+                        ],
+                        "crop": true
+                    },
+                    "large": {
+                        "size": [
+                            600,
+                            600
+                        ],
+                        "crop": false
+                    }
+                }
+            },
+            "THUMBNAIL_BASEDIR": "thumbnails",
+            "THUMBNAIL_DEFAULT_STORAGE": "django.core.files.storage.FileSystemStorage"
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true,
+        "dependencies": [
+            "pillow"
+        ]
+    },
+    "gunicorn": {
+        "installed_apps": null,
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": null,
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false,
+        "wsgi_server": true,
+        "run_command": "gunicorn {{ project_name }}.wsgi:application --bind 0.0.0.0:8000"
+    },
+    "mysqlclient": {
+        "installed_apps": null,
+        "middleware": null,
+        "database_engine": "django.db.backends.mysql",
+        "database_config": {
+            "ENGINE": "django.db.backends.mysql",
+            "NAME": "{{ db_name }}",
+            "USER": "{{ db_user }}",
+            "PASSWORD": "{{ db_password }}",
+            "HOST": "localhost",
+            "PORT": "3306",
+            "OPTIONS": {
+                "charset": "utf8mb4",
+                "init_command": "SET sql_mode='STRICT_TRANS_TABLES'"
+            }
+        },
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": null,
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "pillow": {
+        "installed_apps": null,
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": null,
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false,
+        "enables_imagefield": true
+    },
+    "psycopg2": {
+        "installed_apps": null,
+        "middleware": null,
+        "database_engine": "django.db.backends.postgresql",
+        "database_config": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "{{ db_name }}",
+            "USER": "{{ db_user }}",
+            "PASSWORD": "{{ db_password }}",
+            "HOST": "localhost",
+            "PORT": "5432",
+            "CONN_MAX_AGE": 600,
+            "OPTIONS": {
+                "connect_timeout": 10
+            }
+        },
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": null,
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "psycopg2-binary": {
+        "installed_apps": null,
+        "middleware": null,
+        "database_engine": "django.db.backends.postgresql",
+        "database_config": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": "{{ db_name }}",
+            "USER": "{{ db_user }}",
+            "PASSWORD": "{{ db_password }}",
+            "HOST": "localhost",
+            "PORT": "5432",
+            "CONN_MAX_AGE": 600,
+            "OPTIONS": {
+                "connect_timeout": 10
+            }
+        },
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": null,
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false,
+        "note": "Use psycopg2 for production, psycopg2-binary for development"
+    },
+    "sorl-thumbnail": {
+        "installed_apps": "sorl.thumbnail",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "THUMBNAIL_ENGINE": "sorl.thumbnail.engines.pil_engine.Engine",
+            "THUMBNAIL_KVSTORE": "sorl.thumbnail.kvstores.cached_db_kvstore.KVStore",
+            "THUMBNAIL_BACKEND": "sorl.thumbnail.base.ThumbnailBackend",
+            "THUMBNAIL_FORMAT": "JPEG",
+            "THUMBNAIL_QUALITY": 95,
+            "THUMBNAIL_PRESERVE_FORMAT": true,
+            "THUMBNAIL_REDIS_HOST": "localhost",
+            "THUMBNAIL_REDIS_PORT": 6379
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true,
+        "dependencies": [
+            "pillow"
+        ]
+    },
+    "whitenoise": {
+        "installed_apps": "whitenoise.runserver_nostatic",
+        "installed_apps_order": "before_staticfiles",
+        "middleware": "whitenoise.middleware.WhiteNoiseMiddleware",
+        "middleware_position": "after_security",
+        "middleware_after": "django.middleware.security.SecurityMiddleware",
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "STORAGES": {
+                "staticfiles": {
+                    "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage"
+                }
+            },
+            "WHITENOISE_USE_FINDERS": false,
+            "WHITENOISE_MANIFEST_STRICT": true,
+            "WHITENOISE_ALLOW_ALL_ORIGINS": true
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "djangorestframework-simplejwt": {
+        "installed_apps": "rest_framework_simplejwt",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "SIMPLE_JWT": {
+                "ACCESS_TOKEN_LIFETIME": "timedelta(minutes=5)",
+                "REFRESH_TOKEN_LIFETIME": "timedelta(days=1)",
+                "ROTATE_REFRESH_TOKENS": false,
+                "BLACKLIST_AFTER_ROTATION": true,
+                "AUTH_HEADER_TYPES": [
+                    "Bearer"
+                ]
+            }
+        },
+        "rest_framework_settings": {
+            "DEFAULT_AUTHENTICATION_CLASSES": [
+                "rest_framework_simplejwt.authentication.JWTAuthentication"
+            ]
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true,
+        "dependencies": [
+            "djangorestframework"
+        ]
+    },
+    "django-htmx": {
+        "installed_apps": "django_htmx",
+        "middleware": "django_htmx.middleware.HtmxMiddleware",
+        "middleware_position": "bottom",
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": null,
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-axes": {
+        "installed_apps": "axes",
+        "middleware": "axes.middleware.AxesMiddleware",
+        "middleware_position": "bottom",
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": [
+            "axes.backends.AxesStandaloneBackend",
+            "django.contrib.auth.backends.ModelBackend"
+        ],
+        "url_patterns": null,
+        "required_settings": {
+            "AXES_FAILURE_LIMIT": 5,
+            "AXES_COOLOFF_TIME": 1,
+            "AXES_LOCKOUT_TEMPLATE": null,
+            "AXES_RESET_ON_SUCCESS": true
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true
+    },
+    "django-health-check": {
+        "installed_apps": [
+            "health_check",
+            "health_check.db",
+            "health_check.cache",
+            "health_check.storage",
+            "health_check.contrib.migrations"
+        ],
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": {
+            "pattern": "ht/",
+            "include": "health_check.urls"
+        },
+        "required_settings": {
+            "HEALTH_CHECK": {
+                "DISK_USAGE_MAX": 90,
+                "MEMORY_MIN": 100
+            }
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true
+    },
+    "django-treebeard": {
+        "installed_apps": "treebeard",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": null,
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true
+    },
+    "drf-spectacular": {
+        "installed_apps": "drf_spectacular",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "SPECTACULAR_SETTINGS": {
+                "TITLE": "API Documentation",
+                "DESCRIPTION": "API description",
+                "VERSION": "1.0.0",
+                "SERVE_INCLUDE_SCHEMA": false
+            }
+        },
+        "rest_framework_settings": {
+            "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema"
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false,
+        "dependencies": [
+            "djangorestframework"
+        ]
+    },
+    "django-csp": {
+        "installed_apps": null,
+        "middleware": "csp.middleware.CSPMiddleware",
+        "middleware_position": "bottom",
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "CSP_DEFAULT_SRC": [
+                "'self'"
+            ],
+            "CSP_SCRIPT_SRC": [
+                "'self'"
+            ],
+            "CSP_STYLE_SRC": [
+                "'self'",
+                "'unsafe-inline'"
+            ],
+            "CSP_IMG_SRC": [
+                "'self'",
+                "data:"
+            ],
+            "CSP_FONT_SRC": [
+                "'self'"
+            ]
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false
+    },
+    "django-structlog": {
+        "installed_apps": "django_structlog",
+        "middleware": "django_structlog.middlewares.RequestMiddleware",
+        "middleware_position": "top",
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "DJANGO_STRUCTLOG_CELERY_ENABLED": false,
+            "DJANGO_STRUCTLOG_COMMAND_LOGGING_ENABLED": false
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": false,
+        "dependencies": [
+            "structlog"
+        ]
+    },
+    "django-rosetta": {
+        "installed_apps": "rosetta",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": {
+            "pattern": "rosetta/",
+            "include": "rosetta.urls"
+        },
+        "required_settings": {
+            "ROSETTA_MESSAGES_PER_PAGE": 10,
+            "ROSETTA_ENABLE_TRANSLATION_SUGGESTIONS": false,
+            "ROSETTA_SHOW_AT_ADMIN_PANEL": true
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true
+    },
+    "django-recaptcha": {
+        "installed_apps": "django_recaptcha",
+        "middleware": null,
+        "database_engine": null,
+        "cache_backend": null,
+        "channel_layers": null,
+        "authentication_backends": null,
+        "url_patterns": null,
+        "required_settings": {
+            "RECAPTCHA_PUBLIC_KEY": "",
+            "RECAPTCHA_PRIVATE_KEY": "",
+            "RECAPTCHA_REQUIRED_SCORE": 0.85
+        },
+        "context_processors": null,
+        "staticfiles_finders": null,
+        "requires_migrations": true
+    }
+}
